@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class rak extends Model
 {
-    //
+    protected $guarded = [];
 }

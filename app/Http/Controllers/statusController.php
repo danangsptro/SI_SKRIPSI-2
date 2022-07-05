@@ -36,4 +36,18 @@ class statusController extends Controller
             return redirect('/dashboard/status');
         }
     }
+
+    public function delete ($id)
+    {
+        if (!$id) {
+            toastr()->error('Data not found');
+        } else {
+            $data = status::find($id);
+            if ($data) {
+                $data->delete();
+                toastr()->success('Data has been delete successfully!');
+                return redirect()->back();
+            }
+        }
+    }
 }

@@ -13,7 +13,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{route('dashboard')}}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
@@ -29,7 +29,7 @@
 
     <!-- Nav Item - Charts -->
     <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="{{route('maplop')}}">
             <i class="fas fa-fw fa-file"></i>
             <span>Maplop</span></a>
     </li>
@@ -42,14 +42,14 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="{{ route('rak') }}">
             <i class="fas fa-fw fa-table"></i>
             <span>Rak</span></a>
     </li>
 
 
     <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="{{route('jenisData')}}">
             <i class="fas fa-fw fa-table"></i>
             <span>Jenis Data</span></a>
     </li>
