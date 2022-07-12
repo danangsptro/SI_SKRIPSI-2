@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\http\Models\jenisData;
+use Facade\FlareClient\View;
 use Illuminate\Http\Request;
 
 class jenisDataController extends Controller
@@ -27,6 +28,38 @@ class jenisDataController extends Controller
         $data = jenisData::create($request->all());
         $data->jenis_data = $validate['jenis_data'];
         $data->save();
+
+        if (!$data) {
+            toastr()->error('Data has been not saved');
+            return redirect('/dashboard/jenis-data');
+        } else {
+            toastr()->success('Data has been saved successfully!');
+            return redirect('/dashboard/jenis-data');
+        }
+    }
+
+    public function edit($id)
+    {
+        $data = jenisData::find($id);
+        return view('page.jenis-data.edit', compact('data'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $validate = $request->validate([
+            'jenis_data' => 'required|min:3',
+        ]);
+
+        $id = $request->id;
+        if ($id === null) {
+            toastr()->error('Id does not exist');
+            return redirect()->back();
+        }
+
+        $data = jenisData::find($id);
+        $data->jenis_data = $validate['jenis_data'];
+        $data->save();
+
 
         if (!$data) {
             toastr()->error('Data has been not saved');

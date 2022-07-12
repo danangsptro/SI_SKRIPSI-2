@@ -35,7 +35,7 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->nama_rak }}</td>
                                     <td class="text-center">
-                                        <a href="#" class="btn btn-info btn-circle">
+                                        <a href="{{route('edit-rak', $item->id)}}" class="btn btn-info btn-circle">
                                             <i class="fas fa-pen"></i>
                                         </a>
 

@@ -37,7 +37,39 @@ class statusController extends Controller
         }
     }
 
-    public function delete ($id)
+    public function edit($id)
+    {
+        $status = status::find($id);
+        return view('page.status.edit', compact('status'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $validate = $request->validate([
+            'nama_status' => 'required|min:3',
+        ]);
+
+        $id = $request->id;
+
+        if(!$id){
+            toastr()->error('Id does not exist');
+            return redirect()->back();
+        }
+
+        $status = status::find($id);
+        $status->nama_status = $validate['nama_status'];
+        $status->save();
+
+        if (!$status) {
+            toastr()->error('Data has been not saved');
+            return redirect('/dashboard/status');
+        } else {
+            toastr()->success('Data has been saved successfully!');
+            return redirect('/dashboard/status');
+        }
+    }
+
+    public function delete($id)
     {
         if (!$id) {
             toastr()->error('Data not found');

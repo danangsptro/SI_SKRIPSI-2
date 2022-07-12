@@ -35,7 +35,7 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->jenis_data }}</td>
                                     <td class="text-center">
-                                        <a href="#" class="btn btn-info btn-circle">
+                                        <a href="{{route('jenisDataEdit', $item->id)}}" class="btn btn-info btn-circle">
                                             <i class="fas fa-pen"></i>
                                         </a>
 

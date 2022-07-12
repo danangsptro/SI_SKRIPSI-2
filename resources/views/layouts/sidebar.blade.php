@@ -13,7 +13,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="{{route('dashboard')}}">
+        <a class="nav-link" href="{{ route('dashboard') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
@@ -29,7 +29,7 @@
 
     <!-- Nav Item - Charts -->
     <li class="nav-item">
-        <a class="nav-link" href="{{route('maplop')}}">
+        <a class="nav-link" href="{{ route('maplop') }}">
             <i class="fas fa-fw fa-file"></i>
             <span>Maplop</span></a>
     </li>
@@ -49,13 +49,37 @@
 
 
     <li class="nav-item">
-        <a class="nav-link" href="{{route('jenisData')}}">
+        <a class="nav-link" href="{{ route('jenisData') }}">
             <i class="fas fa-fw fa-table"></i>
             <span>Jenis Data</span></a>
     </li>
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Laporan Data Maplop
+    </div>
+
+    <li class="nav-item">
+        <a class="nav-link" href="">
+            <i class="fas fa-fw fa-file"></i>
+            <span>Laporan</span></a>
+    </li>
+    <hr class="sidebar-divider">
+
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Register User
+    </div>
+
+    <li class="nav-item">
+        <a class="nav-link" href="">
+            <i class="fas fa-fw fa-user"></i>
+            <span>Register</span></a>
+    </li>
 
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">

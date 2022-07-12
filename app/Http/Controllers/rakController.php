@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\http\Models\rak;
 use Illuminate\Http\Request;
 
+use function Ramsey\Uuid\v1;
+
 class rakController extends Controller
 {
     public function index()
@@ -28,6 +30,37 @@ class rakController extends Controller
         $data->nama_rak = $validate['nama_rak'];
         $data->save();
         if (!$data) {
+            toastr()->error('Data has been not saved');
+            return redirect('/dashboard/rak');
+        } else {
+            toastr()->success('Data has been saved successfully!');
+            return redirect('/dashboard/rak');
+        }
+    }
+
+    public function edit($id)
+    {
+        $data = rak::find($id);
+        return view('page.rak.edit', compact('data'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $validate = $request->validate([
+            'nama_rak' => 'min:3',
+        ]);
+
+        $id = $request->id;
+        if($id === null){
+            toastr()->error('Id does not exist');
+            return redirect()->back();
+        }
+
+        $rak = rak::find($id);
+        $rak->nama_rak = $validate['nama_rak'];
+        $rak->save();
+
+        if (!$rak) {
             toastr()->error('Data has been not saved');
             return redirect('/dashboard/rak');
         } else {
