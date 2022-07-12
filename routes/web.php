@@ -38,5 +38,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/edit-jenis-data/{id}', 'jenisDataController@edit')->name('jenisDataEdit');
         Route::post('/update-jenis-data/{id}', 'jenisDataController@update')->name('jenisDataUpdate');
         Route::delete('/delete-jenis-data/{id}', 'jenisDataController@delete')->name('jenisDataDelete');
+        // Laporan
+        Route::get('/laporan', 'laporanController@index')->name('laporan');
     });
 });
