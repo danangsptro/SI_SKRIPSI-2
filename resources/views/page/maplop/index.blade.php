@@ -8,7 +8,7 @@
         <!-- Page Heading -->
         <h1 class="h3 mb-2 text-gray-800 text-center mb-4 mt-4">Data Maplop</h1>
         <hr>
-        <a href="#" class="btn btn-primary btn-icon-split mb-4">
+        <a href="{{route('maplop-create')}}" class="btn btn-primary btn-icon-split mb-4">
             <span class="icon text-white-50">
                 <i class="menu-icon fa fa-plus-square"></i>
             </span>
@@ -29,7 +29,7 @@
                                 <th class="text-center">Action</th>
                             </tr>
                         </thead>
-                        {{-- <tbody>
+                        <tbody>
                             @foreach ($data as $item)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
@@ -39,7 +39,7 @@
                                             <i class="fas fa-pen"></i>
                                         </a>
 
-                                        <form action="{{ route('delete-rak', $item->id) }}" class="d-inline" method="POST">
+                                        <form action="{{ route('maplop-delete', $item->id) }}" class="d-inline" method="POST">
                                             @csrf
                                             @method('delete')
                                             <button class="btn btn-danger btn-circle"
@@ -50,7 +50,7 @@
                                     </td>
                                 </tr>
                             @endforeach
-                        </tbody> --}}
+                        </tbody>
                     </table>
                 </div>
             </div>

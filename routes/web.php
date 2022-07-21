@@ -31,6 +31,9 @@ Route::group(['middleware' => 'auth'], function () {
         Route::delete('/delete-rak/{id}', 'rakController@delete')->name('delete-rak');
         // Maplop
         Route::get('/maplop', 'maplopController@index')->name('maplop');
+        Route::delete('/maplop/{id}', 'maplopController@delete')->name('maplop-delete');
+        Route::get('/maplop-create', 'maplopController@create')->name('maplop-create');
+
         // Jenis Data
         Route::get('/jenis-data', 'jenisDataController@index')->name('jenisData');
         Route::get('/create-jenis-data', 'jenisDataController@create')->name('jenisDataCreate');
@@ -40,5 +43,9 @@ Route::group(['middleware' => 'auth'], function () {
         Route::delete('/delete-jenis-data/{id}', 'jenisDataController@delete')->name('jenisDataDelete');
         // Laporan
         Route::get('/laporan', 'laporanController@index')->name('laporan');
+        // Register User
+        Route::get('/register-user', 'userRegisterController@index')->name('register-user');
+        Route::post('/register-store', 'userRegisterController@store')->name('register-store');
+        Route::delete('/register-delete/{id}', 'userRegisterController@delete')->name('register-delete');
     });
 });
