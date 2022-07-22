@@ -33,7 +33,9 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/maplop', 'maplopController@index')->name('maplop');
         Route::delete('/maplop/{id}', 'maplopController@delete')->name('maplop-delete');
         Route::get('/maplop-create', 'maplopController@create')->name('maplop-create');
-
+        Route::post('/maplop-store', 'maplopController@store')->name('maplop-store');
+        Route::get('/maplop-edit/{id}', 'maplopController@edit')->name('maplop-edit');
+        Route::post('/maplop-update/{id}', 'maplopController@update')->name('maplop-update');
         // Jenis Data
         Route::get('/jenis-data', 'jenisDataController@index')->name('jenisData');
         Route::get('/create-jenis-data', 'jenisDataController@create')->name('jenisDataCreate');

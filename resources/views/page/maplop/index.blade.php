@@ -25,7 +25,10 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Nama Maplop</th>
+                                <th>Kode User</th>
+                                <th>Jenis Data</th>
+                                <th>Kode Cabang</th>
+                                <th>Status</th>
                                 <th class="text-center">Action</th>
                             </tr>
                         </thead>
@@ -33,9 +36,12 @@
                             @foreach ($data as $item)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $item->nama_rak }}</td>
+                                    <td>{{ $item->kode_user }}</td>
+                                    <td>{{ $item->jenisData->jenis_data }}</td>
+                                    <td>{{ $item->kode_cabang }}</td>
+                                    <td>{{ $item->status->nama_status }}</td>
                                     <td class="text-center">
-                                        <a href="#" class="btn btn-info btn-circle">
+                                        <a href="{{route('maplop-edit', $item->id)}}" class="btn btn-info btn-circle">
                                             <i class="fas fa-pen"></i>
                                         </a>
 

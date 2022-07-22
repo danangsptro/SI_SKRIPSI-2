@@ -19,13 +19,12 @@ class CreateMaplopsTable extends Migration
             $table->bigInteger('rak_id')->unsigned();
             $table->bigInteger('jenis_data_id')->unsigned();
             $table->integer('kode_cabang');
-            $table->bigInteger('kode_user_id')->unsigned();
+            $table->bigInteger('kode_user');
             $table->timestamps();
 
-            $table->foreign('status_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('status_id')->references('id')->on('statuses')->onDelete('cascade');
             $table->foreign('jenis_data_id')->references('id')->on('jenis_data')->onDelete('cascade');
             $table->foreign('rak_id')->references('id')->on('raks')->onDelete('cascade');
-            $table->foreign('kode_user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

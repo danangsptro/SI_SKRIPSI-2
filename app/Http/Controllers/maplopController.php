@@ -22,11 +22,74 @@ class maplopController extends Controller
     public function create()
     {
         $user = Auth::user()->id;
-        $idUser = DB::table('users')->where('id', $user)->first();
+        $idUser = User::where('id', $user)->first();
         $status = status::all();
         $jenisData = jenisData::all();
         $rak = rak::all();
         return view('page.maplop.create', compact('user', 'idUser', 'jenisData', 'rak', 'status'));
+    }
+
+    public function store(Request $request)
+    {
+        $validate = $request->validate([
+            'status_id' => 'required|max:30',
+            'rak_id' => 'required|max:30',
+            'jenis_data_id' => 'required|max:30',
+            'kode_cabang' => 'required|max:30',
+            'kode_user' => 'required|max:30',
+        ]);
+
+        $data = new maplop();
+        $data->status_id = $validate['status_id'];
+        $data->rak_id = $validate['rak_id'];
+        $data->jenis_data_id = $validate['jenis_data_id'];
+        $data->kode_cabang = $validate['kode_cabang'];
+        $data->kode_user = $validate['kode_user'];
+        $data->save();
+        if (!$data) {
+            toastr()->error('Data has been not saved');
+            return redirect('/dashboard/maplop');
+        } else {
+            toastr()->success('Data has been saved successfully!');
+            return redirect('/dashboard/maplop');
+        }
+    }
+
+    public function edit($id)
+    {
+        $data = maplop::find($id);
+        $status = status::all();
+        $jenisData = jenisData::all();
+        $rak = rak::all();
+        return view('page.maplop.edit', compact('data', 'status', 'jenisData', 'rak'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $validate = $request->validate([
+            'status_id' => 'required|max:30',
+            'rak_id' => 'required|max:30',
+            'jenis_data_id' => 'required|max:30',
+            'kode_cabang' => 'required|max:30',
+            'kode_user' => 'required|max:30',
+        ]);
+
+        $id = $request->id;
+        $data = maplop::find($id);
+        $data->status_id = $validate['status_id'];
+        $data->rak_id = $validate['rak_id'];
+        $data->jenis_data_id = $validate['jenis_data_id'];
+        $data->kode_cabang = $validate['kode_cabang'];
+        $data->kode_user = $validate['kode_user'];
+        $data->save();
+
+        if (!$data) {
+            toastr()->error('Data has been not saved');
+            return redirect('/dashboard/maplop');
+        } else {
+            toastr()->success('Data has been edit successfully!');
+            return redirect('/dashboard/maplop');
+        }
     }
 
     public function delete($id)

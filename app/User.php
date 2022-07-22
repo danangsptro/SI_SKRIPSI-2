@@ -38,8 +38,4 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function maplop()
-    {
-        return $this->hasMany(maplop::class, 'kode_user_id', 'id');
-    }
 }

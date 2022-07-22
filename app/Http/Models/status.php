@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class status extends Model
 {
+    protected $tabel = 'status';
     protected $guarded = [];
 
     public function maplop()

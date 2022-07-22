@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class rak extends Model
 {
+    protected $tabel = 'raks';
     protected $guarded = [];
 
     public function maptop()

@@ -15,7 +15,7 @@
                 <h6 class="m-0 font-weight-bold text-primary">Create Maplop</h6>
             </div>
             <div class="container-fluid mt-4 mb-4">
-                <form method="POST" action="" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('maplop-store') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="col-lg-6">
@@ -67,7 +67,7 @@
                                     <div class="input-group-prepend">
                                         <label class="input-group-text" for="inputGroupSelect01">Options</label>
                                     </div>
-                                    <select class="custom-select" id="inputGroupSelect01" name="nama_rak">
+                                    <select class="custom-select" id="inputGroupSelect01" name="rak_id">
                                         <option selected>Pilih Option</option>
                                         @foreach ($rak as $item)
                                             <option value="{{ $item->id }}" class="text-bold">
@@ -93,8 +93,9 @@
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label>Kode User</label>
-                                <input type="text" class="form-control" name="kode_cabang" value="{{$idUser->kode_user}} - {{$idUser->name}}" readonly required>
-                                @error('kode_cabang')
+                                <input type="text" class="form-control" name="kode_user"
+                                    value="{{ $idUser->kode_user }}" readonly required>
+                                @error('kode_user')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
