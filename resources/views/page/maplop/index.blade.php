@@ -26,6 +26,7 @@
                             <tr>
                                 <th>No</th>
                                 <th>Kode User</th>
+                                <th>Rak</th>
                                 <th>Jenis Data</th>
                                 <th>Kode Cabang</th>
                                 <th>Status</th>
@@ -37,6 +38,7 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->kode_user }}</td>
+                                    <td>{{ $item->rak->nama_rak }}</td>
                                     <td>{{ $item->jenisData->jenis_data }}</td>
                                     <td>{{ $item->kode_cabang }}</td>
                                     <td>{{ $item->status->nama_status }}</td>

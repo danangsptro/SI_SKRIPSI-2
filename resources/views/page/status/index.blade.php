@@ -17,7 +17,12 @@
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">DataTables Status</h6>
+                <h6 class="m-0 font-weight-bold text-primary"><strong>Note list status :</strong></h6>
+                <hr>
+
+                <li> Ada</li>
+                <li>Sudah di pusat</li>
+                <li>Sudah di musnahkan</li>
             </div>
             <div class="card-body">
                 <div class="table-responsive">

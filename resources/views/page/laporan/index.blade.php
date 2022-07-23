@@ -16,7 +16,7 @@
                     <hr>
                     <h5>{{$ada->count()}}</h5>
                 </div>
-                <a href="" class="btn btn-primary mt-4 btn-block">Klik</a>
+                <a href="{{route('laporan-ada')}}" class="btn btn-primary mt-4 btn-block">Klik</a>
             </div>
             <div class="col-lg-3">
                 <div class="card py-4">
@@ -24,7 +24,7 @@
                     <hr>
                     <h5>{{$sudahDipusat->count()}}</h5>
                 </div>
-                <a href="" class="btn btn-info mt-4 btn-block">Klik</a>
+                <a href="{{route('laporan-sudah-dipusat')}}" class="btn btn-info mt-4 btn-block">Klik</a>
             </div>
             <div class="col-lg-3">
                 <div class="card py-4">
@@ -32,7 +32,7 @@
                     <hr>
                     <h5>{{$sudahDimusnahkan->count()}}</h5>
                 </div>
-                <a href="" class="btn btn-danger mt-4 btn-block">Klik</a>
+                <a href="{{route('laporan-sudah-dimusnahkan')}}" class="btn btn-danger mt-4 btn-block">Klik</a>
             </div>
             <div class="col-lg-3">
                 <div class="card py-4">
@@ -40,7 +40,7 @@
                     <hr>
                     <h5>{{$totalKeseluruhan->count()}}</h5>
                 </div>
-                <a href="" class="btn btn-warning mt-4 btn-block">Klik</a>
+                <a href="{{route('laporan-semua-data')}}" class="btn btn-warning mt-4 btn-block">Klik</a>
             </div>
         </div>
 

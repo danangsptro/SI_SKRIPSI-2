@@ -45,6 +45,10 @@ Route::group(['middleware' => 'auth'], function () {
         Route::delete('/delete-jenis-data/{id}', 'jenisDataController@delete')->name('jenisDataDelete');
         // Laporan
         Route::get('/laporan', 'laporanController@index')->name('laporan');
+        Route::get('/laporan-ada', 'LaporanController@laporanAda')->name('laporan-ada');
+        Route::get('/laporan-sudah-dipusat', 'LaporanController@laporanSudahdipusat')->name('laporan-sudah-dipusat');
+        Route::get('/laporan-sudah-dimusnahkan', 'LaporanController@laporanSudahdimusnahkan')->name('laporan-sudah-dimusnahkan');
+        Route::get('/laporan-semua-data', 'LaporanController@laporanSeluruhData')->name('laporan-semua-data');
         // Register User
         Route::get('/register-user', 'userRegisterController@index')->name('register-user');
         Route::post('/register-store', 'userRegisterController@store')->name('register-store');
