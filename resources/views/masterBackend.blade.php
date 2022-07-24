@@ -36,14 +36,11 @@
 
     <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('assets/js/jquery.easing.min.js') }}"></script>
     <script src="{{ asset('assets/js/sb-admin-2.js') }}"></script>
-    <script src="{{ asset('assets/js/Chart.min.js') }}"></script>
-    <script src="{{ asset('assets/js/chart-area-demo.js') }}"></script>
-    <script src="{{ asset('assets/js/chart-pie-demo.js') }}"></script>
     <script src="{{ asset('assets/js/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('assets/js/datatables/dataTables.bootstrap4.min.js') }}"></script>
     <script src="{{ asset('assets/js/demo/datatables-demo.js') }}"></script>
+    @yield('js')
 
 </body>
 

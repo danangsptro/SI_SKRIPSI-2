@@ -8,12 +8,23 @@
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
         </div>
-        <div class="jumbotron jumbotron-fluid">
-            <div class="container">
-                <h1 class="display-4">Welcome to dashboard</h1>
-                <p class="lead">Have a nice day <strong><i>{{$name->name}}</i></strong></p>
+
+        <div class="row">
+
+            <div class="col-lg-10">
+                <div class="card border-left-dark shadow h-100 py-5">
+                    <div class="container">
+                        <h1 class="display-4  text-gray-800">Welcome to dashboard</h1>
+                        <hr>
+                        <p class="lead text-danger">Have a nice day <strong><i>{{ $name->name }}</i>!</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <img src="{{ asset('assets/img/mandiri.jpg') }}" style="border-radius:1rem" width="100%" alt="">
             </div>
         </div>
+        <br>
         <!-- Content Row -->
         <div class="row">
 
@@ -46,7 +57,7 @@
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $maplop->count() }}</div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                <i class="fas fa-file fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </div>

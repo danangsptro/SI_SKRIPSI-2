@@ -32,11 +32,12 @@ class maplopController extends Controller
     public function store(Request $request)
     {
         $validate = $request->validate([
-            'status_id' => 'required|max:30',
-            'rak_id' => 'required|max:30',
-            'jenis_data_id' => 'required|max:30',
-            'kode_cabang' => 'required|max:30',
+            'status_id' => 'required|max:20',
+            'rak_id' => 'required|max:20',
+            'jenis_data_id' => 'required|max:20',
+            'kode_cabang' => 'required|max:11',
             'kode_user' => 'required|max:30',
+            'nama_maplop' => 'required|max:50',
         ]);
 
         $data = new maplop();
@@ -45,6 +46,7 @@ class maplopController extends Controller
         $data->jenis_data_id = $validate['jenis_data_id'];
         $data->kode_cabang = $validate['kode_cabang'];
         $data->kode_user = $validate['kode_user'];
+        $data->nama_maplop = $validate['nama_maplop'];
         $data->save();
         if (!$data) {
             toastr()->error('Data has been not saved');
@@ -57,21 +59,24 @@ class maplopController extends Controller
 
     public function edit($id)
     {
+        $user = Auth::user()->id;
+        $idUser = User::where('id', $user)->first();
         $data = maplop::find($id);
         $status = status::all();
         $jenisData = jenisData::all();
         $rak = rak::all();
-        return view('page.maplop.edit', compact('data', 'status', 'jenisData', 'rak'));
+        return view('page.maplop.edit', compact('data', 'status', 'jenisData', 'rak', 'idUser'));
     }
 
     public function update(Request $request, $id)
     {
         $validate = $request->validate([
-            'status_id' => 'required|max:30',
-            'rak_id' => 'required|max:30',
-            'jenis_data_id' => 'required|max:30',
-            'kode_cabang' => 'required|max:30',
+            'status_id' => 'required|max:20',
+            'rak_id' => 'required|max:20',
+            'jenis_data_id' => 'required|max:20',
+            'kode_cabang' => 'required|max:11',
             'kode_user' => 'required|max:30',
+            'nama_maplop' => 'required|max:50',
         ]);
 
         $id = $request->id;
@@ -81,6 +86,7 @@ class maplopController extends Controller
         $data->jenis_data_id = $validate['jenis_data_id'];
         $data->kode_cabang = $validate['kode_cabang'];
         $data->kode_user = $validate['kode_user'];
+        $data->nama_maplop = $validate['nama_maplop'];
         $data->save();
 
         if (!$data) {

@@ -15,11 +15,12 @@ class CreateMaplopsTable extends Migration
     {
         Schema::create('maplops', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('status_id')->unsigned();
-            $table->bigInteger('rak_id')->unsigned();
-            $table->bigInteger('jenis_data_id')->unsigned();
+            $table->bigInteger('status_id')->unsigned()->nullable();
+            $table->bigInteger('rak_id')->unsigned()->nullable();
+            $table->bigInteger('jenis_data_id')->unsigned()->nullable();
+            $table->string('nama_maplop', 50)->nullable();
             $table->integer('kode_cabang');
-            $table->bigInteger('kode_user');
+            $table->integer('kode_user');
             $table->timestamps();
 
             $table->foreign('status_id')->references('id')->on('statuses')->onDelete('cascade');

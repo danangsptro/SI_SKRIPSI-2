@@ -25,6 +25,7 @@
                         <thead>
                             <tr>
                                 <th>No</th>
+                                <th>Nama Maplop</th>
                                 <th>Kode User</th>
                                 <th>Rak</th>
                                 <th>Jenis Data</th>
@@ -37,6 +38,7 @@
                             @foreach ($data as $item)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $item->nama_maplop }}</td>
                                     <td>{{ $item->kode_user }}</td>
                                     <td>{{ $item->rak->nama_rak }}</td>
                                     <td>{{ $item->jenisData->jenis_data }}</td>

@@ -74,6 +74,7 @@
                                         <option selected>Pilih Option</option>
                                         <option value="admin">Admin</option>
                                         <option value="pegawai">Pegawai</option>
+                                        <option value="pimpinan">Pimpinan</option>
                                     </select>
                                     @error('user_role')
                                         <div class="text-danger">{{ $message }}</div>
@@ -81,9 +82,7 @@
                                 </div>
                                 <div class="form-group col-lg-6">
                                     <label for="email">Email</label>
-                                    <input type="text" name="email"
-                                        class="form-control"
-                                        value="{{ old('email') }}">
+                                    <input type="text" name="email" class="form-control" value="{{ old('email') }}">
                                     @error('nama_pria')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
@@ -141,8 +140,11 @@
                                         @if ($q->user_role === 'pegawai')
                                             <span class="badge badge-warning">{{ $q->user_role }}
                                             </span>
-                                        @else
+                                        @elseif ($q->user_role === 'admin')
                                             <span class="badge badge-success">{{ $q->user_role }}
+                                            </span>
+                                        @elseif ($q->user_role === 'pimpinan')
+                                            <span class="badge badge-info">{{ $q->user_role }}
                                             </span>
                                         @endif
                                     </td>
@@ -151,11 +153,12 @@
                                     <td>{{ $q->username }}</td>
                                     <td>{{ $q->jenis_kelamin }}</td>
                                     <td class="text-center">
-                                        <a href="#" class="btn btn-info btn-circle"
+                                        <a href="" class="btn btn-info btn-circle"
                                             onclick="return confirm('fitur on going')">
                                             <i class="fas fa-pen"></i>
                                         </a>
-                                        <form action="{{route('register-delete', $q->id)}}" method="POST" class="d-inline">
+                                        <form action="{{ route('register-delete', $q->id) }}" method="POST"
+                                            class="d-inline">
                                             @csrf
                                             @method('delete')
                                             <button class="btn btn-danger btn-circle"

@@ -20,6 +20,25 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
+                                <label>Nama Maplop</label>
+                                <input type="text" class="form-control" name="nama_maplop" placeholder="Input nama maplop" required>
+                                @error('nama_maplop')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Kode User</label>
+                                <input type="text" class="form-control" name="kode_user" value="{{ $idUser->kode_user }}"
+                                    readonly required>
+                                @error('kode_user')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
                                 <label class="control-label mb-1">Status</label>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
@@ -84,18 +103,8 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label>Kode Cabang</label>
-                                <input type="text" class="form-control" name="kode_cabang" required>
+                                <input type="text" class="form-control" name="kode_cabang" required placeholder="input kode cabang">
                                 @error('kode_cabang')
-                                    <div class="text-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="form-group">
-                                <label>Kode User</label>
-                                <input type="text" class="form-control" name="kode_user"
-                                    value="{{ $idUser->kode_user }}" readonly required>
-                                @error('kode_user')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>

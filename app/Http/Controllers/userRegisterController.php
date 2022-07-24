@@ -44,6 +44,12 @@ class userRegisterController extends Controller
         }
     }
 
+    public function edit($id)
+    {
+        $data = User::find($id);
+        return view('page.register.edit', compact('data'));
+    }
+
     public function delete($id)
     {
         $data = User::find($id);

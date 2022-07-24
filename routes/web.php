@@ -49,9 +49,14 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/laporan-sudah-dipusat', 'LaporanController@laporanSudahdipusat')->name('laporan-sudah-dipusat');
         Route::get('/laporan-sudah-dimusnahkan', 'LaporanController@laporanSudahdimusnahkan')->name('laporan-sudah-dimusnahkan');
         Route::get('/laporan-semua-data', 'LaporanController@laporanSeluruhData')->name('laporan-semua-data');
+        Route::get('/laporan-print-pdf', 'LaporanController@printPdfAda')->name('laporan-print-pdf');
+        Route::get('/laporan-print-pdf-dipusat', 'LaporanController@printPdfdipusat')->name('laporan-print-pdf-pusat');
+        Route::get('/laporan-print-pdf-dimusnahkan', 'LaporanController@printPdfdimusnahkan')->name('laporan-print-pdf-musnahkan');
+        Route::get('/laporan-print-pdf-keseluruhan', 'LaporanController@printPdfSeluruh')->name('laporan-print-pd-seluruh');
         // Register User
         Route::get('/register-user', 'userRegisterController@index')->name('register-user');
         Route::post('/register-store', 'userRegisterController@store')->name('register-store');
+        Route::get('/register-edit/{id}', 'userRegisterController@edit')->name('register-edit');
         Route::delete('/register-delete/{id}', 'userRegisterController@delete')->name('register-delete');
     });
 });
