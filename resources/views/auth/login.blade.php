@@ -1,21 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <marquee>
-            <p class="text-mandiri"><i>Bank Mandiri Tangerang Merdeka</i></p>
-        </marquee>
-        <!-- Outer Row -->
+    <div class="container" >
         <div class="row justify-content-center">
-            <div class="card o-hidden border-0 shadow-lg">
+            <div class="card o-hidden border-0 shadow-lg" style="border-radius: 2rem">
                 <div class="card-body p-0">
                     <!-- Nested Row within Card Body -->
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="p-5">
                                 <div class="text-center">
-                                    <img src="{{ asset('assets/img/mandiri.jpg') }}" style="border-radius: 10rem"
-                                        width="20%" alt="">
+                                    <img src="{{ asset('assets/img/mandiri.png') }}"
+                                        width="30%" alt="">
                                     <br><br>
                                     <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                 </div>

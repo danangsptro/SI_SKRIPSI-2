@@ -29,9 +29,13 @@
         color: black;
 
     }
+
+    .bg-gradient{
+        background: #18447e
+    }
 </style>
 
-<body class="bg-gradient-warning" style="margin-top: 10rem">
+<body class="bg-gradient" style="margin-top: 10rem">
     <div id="app">
         <main class="py-4">
             @yield('content')

@@ -26,7 +26,7 @@ class LaporanController extends Controller
         $end = date("Y-m-d", strtotime($request->end));
 
         if ($request->start && $request->end) {
-            $ada = $ada->whereBetween('created_at', [$start, $end]);
+            $ada = $ada->whereBetween('tanggal', [$start, $end]);
         }
 
         return view('page.laporan.laporanAda', compact('ada'));
@@ -40,7 +40,7 @@ class LaporanController extends Controller
         $end = date("Y-m-d", strtotime($request->end));
 
         if ($request->start && $request->end) {
-            $sudahDiPusat = $sudahDiPusat->whereBetween('created_at', [$start, $end]);
+            $sudahDiPusat = $sudahDiPusat->whereBetween('tanggal', [$start, $end]);
         }
 
         return view('page.laporan.laporanSudahdipusat', compact('sudahDiPusat'));
@@ -54,7 +54,7 @@ class LaporanController extends Controller
         $end = date("Y-m-d", strtotime($request->end));
 
         if ($request->start && $request->end) {
-            $sudahDimusnahkan = $sudahDimusnahkan->whereBetween('created_at', [$start, $end]);
+            $sudahDimusnahkan = $sudahDimusnahkan->whereBetween('tanggal', [$start, $end]);
         }
 
         return view('page.laporan.laporanSudahdimusnahkan', compact('sudahDimusnahkan'));
@@ -68,7 +68,7 @@ class LaporanController extends Controller
         $end = date("Y-m-d", strtotime($request->end));
 
         if ($request->start && $request->end) {
-            $laporanseluruhData = $laporanseluruhData->whereBetween('created_at', [$start, $end]);
+            $laporanseluruhData = $laporanseluruhData->whereBetween('tanggal', [$start, $end]);
         }
 
         return view('page.laporan.laporanSeluruhdataLaporan', compact('laporanseluruhData'));
@@ -85,7 +85,7 @@ class LaporanController extends Controller
         $end = date("Y-m-d 23:59:59", strtotime($request->end));
 
         if ($request->start && $request->end) {
-            $data = $data->whereBetween('created_at', [$start, $end]);
+            $data = $data->whereBetween('tanggal', [$start, $end]);
         }
 
         $pdf = app('dompdf.wrapper');
@@ -108,7 +108,7 @@ class LaporanController extends Controller
         $end = date("Y-m-d 23:59:59", strtotime($request->end));
 
         if ($request->start && $request->end) {
-            $data = $data->whereBetween('created_at', [$start, $end]);
+            $data = $data->whereBetween('tanggal', [$start, $end]);
         }
 
         $pdf = app('dompdf.wrapper');
@@ -132,7 +132,7 @@ class LaporanController extends Controller
         $end = date("Y-m-d 23:59:59", strtotime($request->end));
 
         if ($request->start && $request->end) {
-            $data = $data->whereBetween('created_at', [$start, $end]);
+            $data = $data->whereBetween('tanggal', [$start, $end]);
         }
 
         $pdf = app('dompdf.wrapper');
@@ -156,7 +156,7 @@ class LaporanController extends Controller
         $end = date("Y-m-d 23:59:59", strtotime($request->end));
 
         if ($request->start && $request->end) {
-            $data = $data->whereBetween('created_at', [$start, $end]);
+            $data = $data->whereBetween('tanggal', [$start, $end]);
         }
 
         $pdf = app('dompdf.wrapper');

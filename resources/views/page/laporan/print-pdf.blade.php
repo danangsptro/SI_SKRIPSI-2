@@ -52,7 +52,7 @@
                     <td>{{ $item->kode_user }}</td>
                     <td>{{ $item->jenisData->jenis_data }}</td>
                     <td>{{ $item->rak->nama_rak }}</td>
-                    <td>{{ $item->status->nama_status }}</td>
+                    <td>{{ $item->statusName->nama_status }}</td>
                 </tr>
             @empty
                 <tr>

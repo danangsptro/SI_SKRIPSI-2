@@ -23,7 +23,7 @@
                                 <div class="form-group">
                                     <label><strong>Nama Maplop</strong></label>
                                     <input type="text" class="form-control" name="nama_maplop"
-                                        value="{{ $idUser->nama_maplop }}" readonly required>
+                                        value="{{ $data->nama_maplop }}" required>
                                     @error('nama_maplop')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
@@ -86,7 +86,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-4">
                             <div class="form-group">
                                 <label for="index_id"><strong>Rak</strong></label>
                                 <div class="input-group mb-3">
@@ -108,12 +108,31 @@
                                 </div>
                             </div>
                         </div>
-                           <div class="col-lg-6">
+                        <div class="col-lg-4">
                             <div class="form-group">
                                 <label><strong>Kode Cabang</strong></label>
                                 <input type="text" class="form-control" placeholder="Masukan kode cabang"
                                     name="kode_cabang" required value="{{ $data->kode_cabang }}">
                                 @error('kode_cabang')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label>Tanggal</label>
+                                <input type="date" class="form-control" name="tanggal" placeholder="Input nama maplop"
+                                    required value="{{ $data->tanggal }}">
+                                @error('tanggal')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <input type="hidden"class="form-control" name="status"value="{{ $data->status }}" readonly required>
+                                @error('status')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>

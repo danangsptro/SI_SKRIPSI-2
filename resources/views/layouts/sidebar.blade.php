@@ -1,11 +1,9 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('dashboard') }}">
-        <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-laugh-wink"></i>
-        </div>
-        <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+    <a class="sidebar-brand d-flex align-items-center justify-content-center bg-white" href="{{ route('dashboard') }}">
+        <img src="{{ asset('assets/img/mandiri.png') }}" style="border-radius:1rem" width="70%"
+        alt="">
     </a>
 
     <!-- Divider -->
@@ -34,28 +32,30 @@
             <span>Maplop</span></a>
     </li>
 
-    <!-- Nav Item - Tables -->
-    <li class="nav-item">
-        <a class="nav-link" href="{{ route('status') }}">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Status</span></a>
-    </li>
+    @if (Auth::user()->user_role === 'admin' || Auth::user()->user_role === 'pimpinan')
+        <!-- Nav Item - Tables -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('status') }}">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Status</span></a>
+        </li>
 
-    <li class="nav-item">
-        <a class="nav-link" href="{{ route('rak') }}">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Rak</span></a>
-    </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('rak') }}">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Rak</span></a>
+        </li>
 
 
-    <li class="nav-item">
-        <a class="nav-link" href="{{ route('jenisData') }}">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Jenis Data</span></a>
-    </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('jenisData') }}">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Jenis Data</span></a>
+        </li>
 
-    <!-- Divider -->
-    <hr class="sidebar-divider d-none d-md-block">
+        <!-- Divider -->
+        <hr class="sidebar-divider d-none d-md-block">
+    @endif
 
     <!-- Heading -->
     <div class="sidebar-heading">
@@ -70,17 +70,18 @@
     <hr class="sidebar-divider">
 
 
-    <!-- Heading -->
-    <div class="sidebar-heading">
-        Register User
-    </div>
+    @if (Auth::user()->user_role === 'admin' || Auth::user()->user_role === 'pimpinan')
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            Register User
+        </div>
 
-    <li class="nav-item">
-        <a class="nav-link" href="{{ route('register-user') }}">
-            <i class="fas fa-fw fa-user"></i>
-            <span>Register</span></a>
-    </li>
-
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('register-user') }}">
+                <i class="fas fa-fw fa-user"></i>
+                <span>Register</span></a>
+        </li>
+    @endif
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>

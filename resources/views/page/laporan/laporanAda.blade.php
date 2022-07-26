@@ -58,6 +58,7 @@
                         <thead>
                             <tr>
                                 <th>No</th>
+                                <th>Tanggal Input</th>
                                 <th>Kode Nama Maplop</th>
                                 <th>Kode Cabang</th>
                                 <th>Kode User</th>
@@ -70,12 +71,13 @@
                             @foreach ($ada as $item)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $item->tanggal }}</td>
                                     <td>{{ $item->nama_maplop }}</td>
                                     <td>{{ $item->kode_cabang }}</td>
                                     <td>{{ $item->kode_user }}</td>
                                     <td>{{ $item->jenisData->jenis_data }}</td>
                                     <td>{{ $item->rak->nama_rak }}</td>
-                                    <td>{{ $item->status->nama_status }}</td>
+                                    <td>{{ $item->statusName->nama_status }}</td>
                                 </tr>
                             @endforeach
                         </tbody>

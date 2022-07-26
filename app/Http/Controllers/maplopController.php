@@ -13,9 +13,15 @@ use Illuminate\Support\Facades\DB;
 
 class maplopController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $data = maplop::all();
+        $start = date("Y-m-d", strtotime($request->start));
+        $end = date("Y-m-d", strtotime($request->end));
+
+        if ($request->start && $request->end) {
+            $data = $data->whereBetween('tanggal', [$start, $end]);
+        }
         return view('page.maplop.index', compact('data'));
     }
 
@@ -36,6 +42,8 @@ class maplopController extends Controller
             'rak_id' => 'required|max:20',
             'jenis_data_id' => 'required|max:20',
             'kode_cabang' => 'required|max:11',
+            'tanggal' => 'required|max:20',
+            'status' => 'required|max:11',
             'kode_user' => 'required|max:30',
             'nama_maplop' => 'required|max:50',
         ]);
@@ -46,6 +54,8 @@ class maplopController extends Controller
         $data->jenis_data_id = $validate['jenis_data_id'];
         $data->kode_cabang = $validate['kode_cabang'];
         $data->kode_user = $validate['kode_user'];
+        $data->tanggal = $validate['tanggal'];
+        $data->status = 0;
         $data->nama_maplop = $validate['nama_maplop'];
         $data->save();
         if (!$data) {
@@ -75,6 +85,8 @@ class maplopController extends Controller
             'rak_id' => 'required|max:20',
             'jenis_data_id' => 'required|max:20',
             'kode_cabang' => 'required|max:11',
+            'tanggal' => 'required|max:20',
+            'status' => 'required|max:11',
             'kode_user' => 'required|max:30',
             'nama_maplop' => 'required|max:50',
         ]);
@@ -85,6 +97,8 @@ class maplopController extends Controller
         $data->rak_id = $validate['rak_id'];
         $data->jenis_data_id = $validate['jenis_data_id'];
         $data->kode_cabang = $validate['kode_cabang'];
+        $data->tanggal = $validate['tanggal'];
+        $data->status = 0;
         $data->kode_user = $validate['kode_user'];
         $data->nama_maplop = $validate['nama_maplop'];
         $data->save();
@@ -95,6 +109,18 @@ class maplopController extends Controller
         } else {
             toastr()->success('Data has been edit successfully!');
             return redirect('/dashboard/maplop');
+        }
+    }
+
+
+    public function approve($id)
+    {
+        $data = maplop::find($id);
+        $data->status = 1;
+        $data->save();
+        if ($data) {
+            toastr()->success('Data has been approved successfully!');
+            return redirect()->back();
         }
     }
 

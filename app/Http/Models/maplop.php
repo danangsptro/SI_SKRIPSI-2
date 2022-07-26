@@ -23,7 +23,7 @@ class maplop extends Model
         return $this->belongsTo(rak::class, 'rak_id');
     }
 
-    public function status()
+    public function statusName()
     {
         return $this->belongsTo(status::class, 'status_id');
     }

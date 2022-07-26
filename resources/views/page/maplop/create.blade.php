@@ -21,7 +21,8 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label>Nama Maplop</label>
-                                <input type="text" class="form-control" name="nama_maplop" placeholder="Input nama maplop" required>
+                                <input type="text" class="form-control" name="nama_maplop"
+                                    placeholder="Input nama maplop" required>
                                 @error('nama_maplop')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
@@ -79,7 +80,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-4">
                             <div class="form-group">
                                 <label class="control-label mb-1">Rak</label>
                                 <div class="input-group mb-3">
@@ -100,18 +101,38 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-4">
                             <div class="form-group">
                                 <label>Kode Cabang</label>
-                                <input type="text" class="form-control" name="kode_cabang" required placeholder="input kode cabang">
+                                <input type="text" class="form-control" name="kode_cabang" required
+                                    placeholder="input kode cabang">
                                 @error('kode_cabang')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label>Tanggal</label>
+                                <input type="date" class="form-control" name="tanggal" placeholder="Input nama maplop"
+                                    required>
+                                @error('tanggal')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <input type="hidden"class="form-control" name="status" value="0" readonly required>
+                                @error('status')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                         </div>
                     </div>
 
-                    <div class="mt-4">
+                    <div class="mt-4 hidden">
                         <button type="submit" class="btn btn-primary"
                             onclick="return confirm('Data yang di masukan sudah benar ?')">Submit</button>
                         <a href="{{ route('maplop') }}" type="submit" class="btn btn-dark">Back</a>

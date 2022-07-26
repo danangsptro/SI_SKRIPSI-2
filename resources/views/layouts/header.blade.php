@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+<nav class="navbar navbar-expand navbar-light bg-warning topbar mb-4 static-top shadow">
 
     <!-- Sidebar Toggle (Topbar) -->
     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -13,8 +13,15 @@
         <li class="nav-item dropdown no-arrow">
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
-                <img class="img-profile rounded-circle" src="{{ asset('assets/img/adminnn.png') }}">
+                <span class="mr-2 d-none d-lg-inline text-white small">{{ Auth::user()->name }}</span>
+                @if (Auth::user()->user_role === 'admin')
+                    <img class="img-profile rounded-circle" src="{{ asset('assets/img/admin1.jpeg') }}">
+                @elseif(Auth::user()->user_role === 'pimpinan')
+                    <img class="img-profile rounded-circle" src="{{ asset('assets/img/pimpinan1.jpeg') }}">
+                @elseif(Auth::user()->user_role === 'pegawai')
+                <img class="img-profile rounded-circle" src="{{ asset('assets/img/pegawa.png') }}">
+
+                @endif
 
             </a>
             <!-- Dropdown - User Information -->
