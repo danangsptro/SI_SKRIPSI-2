@@ -2,8 +2,7 @@
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center bg-white" href="{{ route('dashboard') }}">
-        <img src="{{ asset('assets/img/mandiri.png') }}" style="border-radius:1rem" width="70%"
-        alt="">
+        <img src="{{ asset('assets/img/mandiri.png') }}" style="border-radius:1rem" width="70%" alt="">
     </a>
 
     <!-- Divider -->
@@ -67,6 +66,13 @@
             <i class="fas fa-fw fa-file"></i>
             <span>Laporan</span></a>
     </li>
+
+    {{-- <li class="nav-item">
+        <a class="nav-link" href="{{ route('maplop-search') }}">
+            <i class="fas fa-fw fa-search"></i>
+            <span>Cari Data Maplop</span></a>
+    </li>
+    <hr class="sidebar-divider"> --}}
     <hr class="sidebar-divider">
 
 
@@ -82,6 +88,11 @@
                 <span>Register</span></a>
         </li>
     @endif
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('profile') }}">
+            <i class="fas fa-fw fa-user"></i>
+            <span>Profile</span></a>
+    </li>
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>

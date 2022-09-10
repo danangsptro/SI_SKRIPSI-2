@@ -21,9 +21,9 @@
                 aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Register Pegawai</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <div class="modal-header bg-primary">
+                            <h5 class="modal-title text-white" id="exampleModalLabel">Register Pegawai</h5>
+                            <button type="button" class="close bg-white" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
@@ -158,10 +158,117 @@
                                     <td>{{ $q->jenis_kelamin }}</td>
                                     @if (Auth::user()->user_role === 'admin')
                                         <td class="text-center">
-                                            <a href="" class="btn btn-info btn-circle"
-                                                onclick="return confirm('fitur on going')">
+                                            <a href="#" class="btn btn-info btn-circle" data-toggle="modal"
+                                                data-target="#edit{{ $loop->iteration }}">
                                                 <i class="fas fa-pen"></i>
                                             </a>
+                                            <div class="modal fade" id="edit{{ $loop->iteration }}" tabindex="-1"
+                                                role="dialog" aria-labelledby="edit{{ $loop->iteration }}Label"
+                                                aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header bg-dark">
+                                                            <h5 class="modal-title text-white"
+                                                                id="edit{{ $loop->iteration }}Label">
+                                                                Update Data User
+                                                            </h5>
+                                                            <button type="button" class="close bg-light"
+                                                                data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body text-left">
+                                                            <form action="{{route('register-store', $q->id)}}" method="POST">
+                                                                @csrf
+                                                                <div class="form-row">
+                                                                    <div class="form-group col-lg-6">
+                                                                        <label for="name">Name</label>
+                                                                        <input type="text" name="name"
+                                                                            class="form-control"
+                                                                            value="{{ $q->name }}" required>
+                                                                    </div>
+                                                                    <div class="form-group col-lg-6">
+                                                                        <label class="form-label font-weight-bold">Jenis
+                                                                            Kelamin</label><br>
+                                                                        <input type="radio"
+                                                                            {{ $q->jenis_kelamin == 'laki-laki' ? 'checked' : '' }}
+                                                                            name="jenis_kelamin" value="laki-laki">
+                                                                        <label for="customRadioInline1">Laki-laki</label>
+
+                                                                        <input type="radio"
+                                                                            {{ $q->jenis_kelamin == 'perempuan' ? 'checked' : '' }}
+                                                                            name="jenis_kelamin" value="perempuan">
+                                                                        <label for="customRadioInline1">perempuan</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-row">
+                                                                    <div class="form-group col-lg-6">
+                                                                        <label>Username</label>
+                                                                        <input type="text" name="username"
+                                                                            class="form-control @error('username') ins-invalid @enderror"
+                                                                            value="{{ $q->username }}" required>
+                                                                    </div>
+                                                                    <div class="form-group col-lg-6">
+                                                                        <label for="email">Email</label>
+                                                                        <input type="text" name="email"
+                                                                            class="form-control @error('email') ins-invalid @enderror"
+                                                                            value="{{ $q->email }}" required>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-row">
+                                                                    <div class="form-group col-lg-6">
+                                                                        <label for="password">Kode User</label>
+                                                                        <input type="text" class="form-control"
+                                                                            name="kode_user" value="{{ $q->kode_user }}"
+                                                                            @error('kode_user') ins-invalid @enderror
+                                                                            required>
+                                                                    </div>
+                                                                    <div class="form-group col-lg-6">
+                                                                        <label class="form-label font-weight-bold">User
+                                                                            Role</label><br>
+                                                                        <input type="radio"
+                                                                            {{ $q->user_role == 'admin' ? 'checked' : '' }}
+                                                                            name="user_role" value="admin">
+                                                                        <label for="customRadioInline2">Admin</label>
+
+                                                                        <input type="radio"
+                                                                            {{ $q->user_role == 'pegawai' ? 'checked' : '' }}
+                                                                            name="user_role" value="pegawai">
+                                                                        <label for="customRadioInline2">Pegawai</label>
+                                                                        <br>
+
+                                                                        <input type="radio"
+                                                                            {{ $q->user_role == 'pimpinan' ? 'checked' : '' }}
+                                                                            name="user_role" value="pimpinan">
+                                                                        <label for="customRadioInline2">Pimpinan</label>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-row">
+                                                                    <div class="form-group col-lg-12">
+                                                                        <label for="password">Password</label>
+                                                                        <input type="text" class="form-control"
+                                                                            name="password"
+                                                                            @error('password') ins-invalid @enderror
+                                                                            required>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-row">
+                                                                    <div class="form-group col-lg-12">
+                                                                        <button class="btn btn-success"
+                                                                            type="submit">Simpan</button>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-dismiss="modal">Close</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <form action="{{ route('register-delete', $q->id) }}" method="POST"
                                                 class="d-inline">
                                                 @csrf

@@ -65,6 +65,7 @@
                                 <th>Kode User</th>
                                 <th>Jenis Data</th>
                                 <th>Rak</th>
+                                <th>Created By</th>
                                 <th>Status</th>
                             </tr>
                         </thead>
@@ -78,6 +79,9 @@
                                     <td>{{ $item->kode_user }}</td>
                                     <td>{{ $item->jenisData->jenis_data }}</td>
                                     <td>{{ $item->rak->nama_rak }}</td>
+                                    <td>
+                                        <span class="badge badge-light">{{ $item->created_by }}</span>
+                                    </td>
                                     <td>{{ $item->statusName->nama_status }}</td>
                                 </tr>
                             @endforeach

@@ -62,6 +62,7 @@
                                 <th>Jenis Data</th>
                                 <th>Kode Cabang</th>
                                 <th>Status Maplop</th>
+                                <th>Created By</th>
                                 <th>Status</th>
                                 <th class="text-center">Action</th>
                             </tr>
@@ -77,6 +78,9 @@
                                     <td>{{ $item->jenisData->jenis_data }}</td>
                                     <td>{{ $item->kode_cabang }}</td>
                                     <td>{{ $item->statusName->nama_status }}</td>
+                                    <td>
+                                        <span class="badge badge-light">{{ $item->created_by }}</span>
+                                    </td>
                                     @if ($item->status === 1)
                                         <td class="text-success">APPROVED</td>
                                     @else

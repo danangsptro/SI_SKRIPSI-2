@@ -23,6 +23,7 @@ class CreateMaplopsTable extends Migration
             $table->date('tanggal', 20)->nullable();
             $table->integer('status')->nullable();
             $table->integer('kode_user');
+            $table->string('created_by');
             $table->timestamps();
 
             $table->foreign('status_id')->references('id')->on('statuses')->onDelete('cascade');

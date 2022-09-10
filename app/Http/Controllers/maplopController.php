@@ -23,6 +23,28 @@ class maplopController extends Controller
             $data = $data->whereBetween('tanggal', [$start, $end]);
         }
         return view('page.maplop.index', compact('data'));
+
+
+        // public function index(Request $request)
+        // {
+        //     $role = Auth::user()->user_role;
+        //     // $q = Auth::user()->id;
+        //     $kodeUser = Auth::user()->kode_user;
+        //     $data = maplop::when($role === 'pegawai', function ($query) use($kodeUser) {
+        //         return $query->where('kode_user', $kodeUser);
+        //     })->get();
+        //     // if ($role === 'pegawai') {
+        //     //     $data->where('kode_user', $kodeUser);
+        //     // }
+
+        //     $start = date("Y-m-d", strtotime($request->start));
+        //     $end = date("Y-m-d", strtotime($request->end));
+
+        //     if ($request->start && $request->end) {
+        //         $data = $data->whereBetween('tanggal', [$start, $end]);
+        //     }
+        //     return view('page.maplop.index', compact('data'));
+        // }
     }
 
     public function create()
@@ -55,6 +77,7 @@ class maplopController extends Controller
         $data->kode_cabang = $validate['kode_cabang'];
         $data->kode_user = $validate['kode_user'];
         $data->tanggal = $validate['tanggal'];
+        $data->created_by = Auth::user()->name;
         $data->status = 0;
         $data->nama_maplop = $validate['nama_maplop'];
         $data->save();
@@ -135,4 +158,9 @@ class maplopController extends Controller
             return redirect()->back();
         }
     }
+
+    // public function search()
+    // {
+    //     return view('page.maplop.search');
+    // }
 }

@@ -37,6 +37,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/maplop-edit/{id}', 'maplopController@edit')->name('maplop-edit');
         Route::post('/maplop-update/{id}', 'maplopController@update')->name('maplop-update');
         Route::post('/maplop-approve/{id}', 'maplopController@approve')->name('maplop-approve');
+        // Route::get('/search', 'maplopController@search')->name('maplop-search');
         // Jenis Data
         Route::get('/jenis-data', 'jenisDataController@index')->name('jenisData');
         Route::get('/create-jenis-data', 'jenisDataController@create')->name('jenisDataCreate');
@@ -56,8 +57,12 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/laporan-print-pdf-keseluruhan', 'LaporanController@printPdfSeluruh')->name('laporan-print-pd-seluruh');
         // Register User
         Route::get('/register-user', 'userRegisterController@index')->name('register-user');
-        Route::post('/register-store', 'userRegisterController@store')->name('register-store');
+        Route::post('/register-store/{id?}', 'userRegisterController@store')->name('register-store');
         Route::get('/register-edit/{id}', 'userRegisterController@edit')->name('register-edit');
         Route::delete('/register-delete/{id}', 'userRegisterController@delete')->name('register-delete');
+        // Profile
+        Route::get('/profile', 'userRegisterController@profile')->name('profile');
+        Route::post('/edit-profile/{id}', 'userRegisterController@editProfile')->name('edit-profile');
+        Route::post('/update-password/{id}', 'userRegisterController@updatePassword')->name('update-password');
     });
 });

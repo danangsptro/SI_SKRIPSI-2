@@ -40,6 +40,7 @@
                 <th scope="col">Kode User</th>
                 <th scope="col">Jenis Data</th>
                 <th scope="col">Rak</th>
+                <th scope="col">Created By</th>
                 <th scope="col">Status</th>
             </tr>
         </thead>
@@ -52,6 +53,9 @@
                     <td>{{ $item->kode_user }}</td>
                     <td>{{ $item->jenisData->jenis_data }}</td>
                     <td>{{ $item->rak->nama_rak }}</td>
+                    <td>
+                        <span class="badge badge-light">{{ $item->created_by }}</span>
+                    </td>
                     <td>{{ $item->statusName->nama_status }}</td>
                 </tr>
             @empty
