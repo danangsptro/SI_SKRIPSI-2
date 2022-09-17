@@ -13,7 +13,7 @@
                                     <img src="{{ asset('assets/img/mandiri.png') }}"
                                         width="30%" alt="">
                                     <br><br>
-                                    <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                    <h1 class="h4  mb-4" style="font-weight: bold; color:black">SPOKE TANGERANG MERDEKA</h1>
                                 </div>
                                 <form method="POST" action="{{ route('login') }}" class="user">
                                     @csrf

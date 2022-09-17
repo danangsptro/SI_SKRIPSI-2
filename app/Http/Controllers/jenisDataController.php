@@ -22,7 +22,7 @@ class jenisDataController extends Controller
     public function store(Request $request)
     {
         $validate = $request->validate([
-            'jenis_data' => 'required|max:20',
+            'jenis_data' => 'required|max:40',
         ]);
 
         $data = jenisData::create($request->all());

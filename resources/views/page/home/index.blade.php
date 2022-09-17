@@ -101,7 +101,7 @@
                         </div>
                     </div>
                     <br><br>
-                    <h1 class="display-4 text-gray-800">Hallo,
+                    <h1 class="display-4 text-gray-50" style="text-transform:uppercase; font-size:55px;">Hallo,
                         <strong>
                             @if (Auth::user()->user_role === 'admin')
                                 Administrator
@@ -113,8 +113,7 @@
                         </strong>
                     </h1>
                     <hr>
-                    <p class="lead text-dark">Selamat datang di <span class="text-primary"><strong>Web Apliakasi Input Data
-                                Maplop BANK MANDIRI MERDEKA</strong></span></p>
+                    <p class="lead text-dark">Selamat datang di <span class="text-primary"><strong>Web Pengolahan Data Maplop Transaksi Harian</strong></span></p>
                 </div>
             </div>
 
